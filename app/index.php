@@ -7,11 +7,17 @@
     <script src="static/charts.js"></script>
   </head>
   <body>
-    <canvas id="temperature" width="400" height="400"></canvas>
-    <canvas id="pressure" width="400" height="400"></canvas>
-    <canvas id="humidity" width="400" height="400"></canvas>
+    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+    <canvas id="temperature"></canvas>
+    
+    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+    <canvas id="pressure"></canvas>
+
+    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+      <canvas id="humidity"></canvas>
+    </div>
     <script>
-      buildCharts('/data.php', ['temperature', 'pressure', 'humidity']);
+      buildCharts('/data.php', [['temperature','red'], ['pressure', 'blue'], ['humidity', 'green']]);
     </script>
   </body>
 </html>
