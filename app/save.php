@@ -1,6 +1,7 @@
 <?php
 
-$pass   = "xyz123";
+require 'login.php';
+
 $dbname = "weather.db";
 
 $sensorid    = $_POST["sensorid"];
@@ -22,11 +23,6 @@ if (!isset($pressure) || !is_numeric($pressure)) {
 
 if (!isset($humidity) || !is_numeric($humidity)) {
  die('Wrong humidity data');
-}
-
-$password = $_POST["password"];
-if (!isset($password) || !($password == $pass)) {
- die('Wrong password');
 }
 
 $db = new SQLite3($dbname);

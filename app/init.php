@@ -1,12 +1,8 @@
 <?php
 
-$pass     = "xyz123";
-$dbname   = "weather.db";
-$password = $_POST["password"];
+require 'login.php';
 
-if (!isset($password) || !($password == $pass)) {
- die('Wrong password');
-}
+$dbname   = "weather.db";
 
 $db = new SQLite3($dbname);
 

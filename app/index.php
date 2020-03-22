@@ -1,3 +1,5 @@
+<?php require 'login.php';?>
+
 <!DOCTYPE HTML>
 <html>
   <head>
