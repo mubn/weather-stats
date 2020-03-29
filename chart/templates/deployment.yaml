@@ -35,10 +35,8 @@ spec:
             httpGet:
               path: /live.php
               port: http
-          readinessProbe:
-            httpGet:
-              path: /live.php
-              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 60
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
