@@ -9,13 +9,13 @@
     <script src="static/charts.js"></script>
   </head>
   <body>
-    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+    <div class="chart-container" style="position: relative; height:25vh;">
     <canvas id="temperature"></canvas>
     
-    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+    <div class="chart-container" style="position: relative; height:25vh;">
     <canvas id="pressure"></canvas>
 
-    <div class="chart-container" style="position: relative; height:25vh; width:95vw">
+    <div class="chart-container" style="position: relative; height:25vh;">
       <canvas id="humidity"></canvas>
     </div>
     <script>

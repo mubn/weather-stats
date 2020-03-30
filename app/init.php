@@ -22,7 +22,8 @@ $db->exec("CREATE TABLE
           sensorid INTEGER NOT NULL,
           temperature REAL,
           pressure REAL,
-          humidity REAL
+          humidity REAL,
+          sqltime DATETIME DEFAULT CURRENT_TIMESTAMP
       )");
 
 $db->exec("INSERT INTO
