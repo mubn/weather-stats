@@ -2,7 +2,7 @@
 
 require 'login.php';
 
-$dbname = "weather.db";
+$dbname = "/db/weather.db";
 
 $sensorid    = $_POST["sensorid"];
 $temperature = $_POST["temperature"];

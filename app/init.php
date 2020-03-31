@@ -2,7 +2,7 @@
 
 require 'login.php';
 
-$dbname   = "weather.db";
+$dbname   = "/db/weather.db";
 
 $db = new SQLite3($dbname);
 

@@ -2,7 +2,7 @@
 
 require 'login.php';
 
-$db = new SQLite3('weather.db');
+$db = new SQLite3('/db/weather.db');
 
 $res = $db->query('SELECT * FROM sensor_values');
 
