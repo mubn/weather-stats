@@ -1,10 +1,17 @@
+{{- if .Values.persistence.enabled }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: weather-claim
+  name: {{ include "chart.fullname" . }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: {{ .Values.persistence.size }}
+  {{- if .Values.persistence.storageClass }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- end }}
+{{- end }}

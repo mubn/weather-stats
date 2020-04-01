@@ -47,3 +47,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistence:
+  enabled: true
+  # storageClass: ""
+  size: 1Gi

@@ -27,9 +27,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.persistence.enabled }}
           volumeMounts:
             - mountPath: /db
-              name: weather-volume
+              name: {{ include "chart.fullname" . }}
+          {{- end }}
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "chown www-data:www-data /db"]
           ports:
             - name: http
               containerPort: 80
@@ -54,7 +60,9 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+    {{- if .Values.persistence.enabled }}
       volumes:
-        - name: weather-volume
+        - name: {{ include "chart.fullname" . }}
           persistentVolumeClaim:
-            claimName: weather-claim
+            claimName: {{ include "chart.fullname" . }}
+    {{- end }}
