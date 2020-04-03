@@ -10,16 +10,21 @@
   </head>
   <body>
     <div class="chart-container" style="position: relative; height:25vh;">
-    <canvas id="temperature"></canvas>
-    
+      <canvas id="temperature"></canvas>
+    </div>
     <div class="chart-container" style="position: relative; height:25vh;">
-    <canvas id="pressure"></canvas>
-
+      <canvas id="pressure"></canvas>
+    </div>
     <div class="chart-container" style="position: relative; height:25vh;">
       <canvas id="humidity"></canvas>
     </div>
+    <div>
+      <button id="day">1 day</button>
+      <button id="month">30 days</button>
+      <button id="year">365 days</button>
+    </div>
     <script>
-      buildCharts('/data.php', [['temperature','red'], ['pressure', 'blue'], ['humidity', 'green']]);
+      page();
     </script>
   </body>
 </html>

@@ -2,9 +2,11 @@
 
 require 'login.php';
 
-$db = new SQLite3('/db/weather.db');
+$fromDate = $_GET["fromDate"];
+$toDate = $_GET["toDate"];
 
-$res = $db->query('SELECT * FROM sensor_values');
+$db = new SQLite3('/db/weather.db');
+$res = $db->query("SELECT * FROM sensor_values WHERE sqltime BETWEEN '$fromDate' AND '$toDate'");
 
 $i = 0;
 
