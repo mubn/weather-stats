@@ -1,3 +1,5 @@
+var weatherCharts = [];
+
 function pad(number) {
   if (number < 10) {
     return '0' + number;
@@ -20,14 +22,27 @@ function buildCharts(url, charts, fromDate, toDate) {
       return response.json();
     })
     .then((data) => {
-      drawCharts(data, charts);
+      if (weatherCharts.length > 0) {
+        updateCharts(data);
+      } else {
+        drawCharts(data, charts);
+      }
     });
 }
 
+function updateCharts (data) {
+  for (i = weatherCharts.length - 1; i >= 0; i--) {
+      weatherCharts[i].data.labels = data[0];
+      weatherCharts[i].data.datasets[0].data = data[i + 1];
+      weatherCharts[i].update();
+  }
+}
+
 function drawCharts(data, charts) {
+  weatherCharts = [];
   for (i = 0; i < charts.length; i++) {
     let ctx = document.getElementById(charts[i][0]).getContext('2d');
-    new Chart(ctx, {
+    weatherCharts.push(new Chart(ctx, {
       type: 'line',
       data: {
         labels: data[0],
@@ -45,7 +60,7 @@ function drawCharts(data, charts) {
           display: false
         },
       }
-    });
+    }));
   }
 }
 
