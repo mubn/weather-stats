@@ -56,15 +56,29 @@ function drawCharts(data, charts) {
       },
       options: {
         maintainAspectRatio: false,
+        scaleShowLabels : false,
         legend: {
           display: false
         },
+        elements: {
+          point: {
+            radius: 1,
+            hoverRadius: 4
+          }
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  display: false
+              }
+          }]
+      }
       }
     }));
   }
 }
 
-function page() {
+function pageInit() {
   var now = new Date();
   var last365Days = new Date(new Date().setDate(new Date().getDate() - 365));
   var last30Days = new Date(new Date().setDate(new Date().getDate() - 30));
@@ -82,4 +96,8 @@ function page() {
   document.getElementById('year').onclick = function() {
     buildCharts('/data.php', structure, last365Days.toISOString(), now.toISOString());
   }
+}
+
+window.onload = function () {
+  this.pageInit();
 }
