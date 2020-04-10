@@ -83,6 +83,9 @@ function drawCharts(data, charts) {
           xAxes: [{
               ticks: {
                   display: false
+              },
+              gridLines: {
+                display:false
               }
           }]
       }
@@ -93,21 +96,21 @@ function drawCharts(data, charts) {
 
 function pageInit() {
   const now = new Date();
-  const last365Days = new Date(new Date().setDate(new Date().getDate() - 365));
   const last30Days = new Date(new Date().setDate(new Date().getDate() - 30));
+  const last7Days = new Date(new Date().setDate(new Date().getDate() - 7));
   const last1Day = new Date(new Date().setDate(new Date().getDate() - 1));
   const structure = [['temperature', 'red'], ['pressure', 'blue'], ['humidity', 'green']];
 
-  buildCharts('/data.php', structure, last30Days.toISOString(), now.toISOString());
+  buildCharts('/data.php', structure, last1Day.toISOString(), now.toISOString());
 
   document.getElementById('day').onclick = function() {
     buildCharts('/data.php', structure, last1Day.toISOString(), now.toISOString());
   }
   document.getElementById('month').onclick = function() {
-    buildCharts('/data.php', structure, last30Days.toISOString(), now.toISOString());
+    buildCharts('/data.php', structure, last7Days.toISOString(), now.toISOString());
   }
   document.getElementById('year').onclick = function() {
-    buildCharts('/data.php', structure, last365Days.toISOString(), now.toISOString());
+    buildCharts('/data.php', structure, last30Days.toISOString(), now.toISOString());
   }
 }
 

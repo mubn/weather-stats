@@ -25,8 +25,8 @@
     </div>
     <div class="interval-selector">
       <button id="day">1 day</button>
-      <button id="month">30 days</button>
-      <button id="year">365 days</button>
+      <button id="month">7 days</button>
+      <button id="year">30 days</button>
     </div>
   </body>
 </html>
