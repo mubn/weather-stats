@@ -1,4 +1,4 @@
-var weatherCharts = [];
+let weatherCharts = [];
 
 function pad(number) {
   if (number < 10) {
@@ -27,10 +27,23 @@ function buildCharts(url, charts, fromDate, toDate) {
       } else {
         drawCharts(data, charts);
       }
+      insertLatestValues(data, charts);
     });
 }
 
-function updateCharts (data) {
+function insertLatestValues(data, charts) {
+  let temperature = document.getElementById('temperature_current');
+  let pressure = document.getElementById('pressure_current');
+  let humidity = document.getElementById('humidity_current')
+  temperature.textContent = data[1][data[1].length - 1] + ' °C';
+  temperature.style.color = charts[0][1];
+  pressure.textContent = data[2][data[2].length - 1] + ' hPa';
+  pressure.style.color = charts[1][1];
+  humidity.textContent =  data[3][data[3].length - 1] + ' %';
+  humidity.style.color = charts[2][1];
+}
+
+function updateCharts(data) {
   for (i = weatherCharts.length - 1; i >= 0; i--) {
       weatherCharts[i].data.labels = data[0];
       weatherCharts[i].data.datasets[0].data = data[i + 1];
@@ -79,11 +92,11 @@ function drawCharts(data, charts) {
 }
 
 function pageInit() {
-  var now = new Date();
-  var last365Days = new Date(new Date().setDate(new Date().getDate() - 365));
-  var last30Days = new Date(new Date().setDate(new Date().getDate() - 30));
-  var last1Day = new Date(new Date().setDate(new Date().getDate() - 1));
-  var structure = [['temperature', 'red'], ['pressure', 'blue'], ['humidity', 'green']];
+  const now = new Date();
+  const last365Days = new Date(new Date().setDate(new Date().getDate() - 365));
+  const last30Days = new Date(new Date().setDate(new Date().getDate() - 30));
+  const last1Day = new Date(new Date().setDate(new Date().getDate() - 1));
+  const structure = [['temperature', 'red'], ['pressure', 'blue'], ['humidity', 'green']];
 
   buildCharts('/data.php', structure, last30Days.toISOString(), now.toISOString());
 

@@ -11,15 +11,15 @@
   </head>
   <body>
     <h1>Weather stats</h1>
-    <h2>Temperature</h2>
+    <h2>Temperature <span id="temperature_current"></h2>
     <div class="chart-container">
       <canvas id="temperature"></canvas>
     </div>
-    <h2>Pressure</h2>
+    <h2>Pressure <span id="pressure_current"></h2>
     <div class="chart-container">
       <canvas id="pressure"></canvas>
     </div>
-    <h2>Humidity</h2>
+    <h2>Humidity <span id="humidity_current"></h2>
     <div class="chart-container">
       <canvas id="humidity"></canvas>
     </div>
