@@ -1,5 +1,7 @@
 replicaCount: 1
 
+strategyType: Recreate
+
 image:
   repository: inettech/weather-stats
   pullPolicy: IfNotPresent

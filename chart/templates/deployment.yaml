@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "chart.labels" . | nindent 4 }}
 spec:
+  strategy:
+    type: {{- .Values.StrategyType }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
