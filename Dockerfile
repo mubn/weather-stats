@@ -4,4 +4,6 @@ LABEL maintainer="docker@marekurban.de"
 
 COPY app/ /var/www/html
 
-RUN mkdir /db && chown www-data:www-data /db
+RUN mkdir /db
+
+RUN chown www-data:www-data /db
