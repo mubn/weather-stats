@@ -17,7 +17,7 @@ Date.prototype.toISOString = function () {
 };
 
 function buildCharts(url, charts, fromDate, toDate) {
-  fetch(url + '?fromDate=' + fromDate + '&toDate=' + toDate)
+  fetch(url + '?sensorid=1&fromDate=' + fromDate + '&toDate=' + toDate)
     .then((response) => {
       return response.json();
     })
