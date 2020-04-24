@@ -52,7 +52,6 @@ function updateCharts(data) {
 }
 
 function drawCharts(data, charts) {
-  weatherCharts = [];
   for (i = 0; i < charts.length; i++) {
     let ctx = document.getElementById(charts[i][0]).getContext('2d');
     weatherCharts.push(new Chart(ctx, {
