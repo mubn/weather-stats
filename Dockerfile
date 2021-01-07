@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.4.14-apache
 
 LABEL maintainer="docker@marekurban.de"
 
