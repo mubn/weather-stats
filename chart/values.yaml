@@ -15,9 +15,9 @@ serviceAccount:
   annotations: {}
   name:
 
-podSecurityContext: {}
-
-securityContext: {}
+podSecurityPolicy:
+  enabled: false
+  name:
 
 service:
   type: ClusterIP
@@ -26,8 +26,6 @@ service:
 ingress:
   enabled: false
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
   hosts:
     - host: chart-example.local
       paths: []
@@ -37,12 +35,6 @@ ingress:
   #      - chart-example.local
 
 resources: {}
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
 
 nodeSelector: {}
 
