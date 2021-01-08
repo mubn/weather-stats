@@ -28,6 +28,17 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: APP_USER
+              valueFrom:
+                secretKeyRef:
+                  key:  username
+                  name: {{ .Chart.Name }}-secret
+            - name: APP_PASS
+              valueFrom:
+                secretKeyRef:
+                  key:  password
+                  name: {{ .Chart.Name }}-secret
           volumeMounts:
             - mountPath: /db
               name: {{ include "chart.fullname" . }}

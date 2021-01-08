@@ -6,6 +6,10 @@ image:
   repository: inettech/weather-stats
   pullPolicy: IfNotPresent
 
+app:
+  username: Testuser
+  password: Testpass
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

@@ -1,7 +1,7 @@
 <?php
 
-$user     = "weather_user";
-$pass     = "weather_pass";
+$user     = getenv('APP_USER');
+$pass     = getenv('APP_PASS');
 
 if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {
     header('WWW-Authenticate: Basic realm="My Realm"');
