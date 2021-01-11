@@ -37,6 +37,8 @@ helm upgrade --install --values myvalues.yaml weather ./chart/
 Run and mount the web directory:
 
 ```
+docker build -t weather-stats .
+
 docker run -v `pwd`/app:/var/www/html/ -p 80:80 -it --rm --env-file ./env --name weather-stats weather-stats
 ```
 
