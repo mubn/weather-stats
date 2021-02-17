@@ -24,14 +24,6 @@ Run the latest image version and mount the database directory on the host file s
 docker run -v `pwd`/db:/db -p 80:80 -it --rm --env-file ./env --name weather-stats inettech/weather-stats
 ```
 
-### Run in a Kubernetes cluster
-
-Overwrite the chart settings with your own values.yaml and install the helm chart:
-
-```
-helm upgrade --install --values myvalues.yaml weather ./chart/
-```
-
 ### Run locally for development
 
 Run and mount the web directory:
@@ -60,12 +52,6 @@ Simply copy the database file `weather.db` to location of your choice. With Dock
 
 ```
 docker cp weather-stats:/db/weather.db /path/to/backups/weather.db
-```
-
-Kubernetes:
-
-```
-kubectl cp weather-chart-f768856f-wlqt4:/db/weather.db /path/to/backups/weather.db
 ```
 
 ## Send data
