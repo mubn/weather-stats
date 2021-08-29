@@ -1,4 +1,4 @@
-FROM php:7.4.14-apache
+FROM php:7.4.23-apache
 LABEL maintainer="docker@marekurban.de"
 ARG ARG_APACHE_LISTEN_PORT=8080
 ENV APACHE_LISTEN_PORT=${ARG_APACHE_LISTEN_PORT}
