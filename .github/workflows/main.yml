@@ -2,7 +2,8 @@ name: Create and publish a Docker image
 
 on:
   push:
-    branches: ['release']
+    tags:
+      - 'v*'
 
 env:
   REGISTRY: ghcr.io
@@ -41,6 +42,7 @@ jobs:
           flavor: |
             latest=true
           tags: |
+            type=semver,enable=true,priority=900,prefix=,suffix=,pattern=,value=
             type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=long
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
