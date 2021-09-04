@@ -42,8 +42,8 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=semver,enable=true,priority=900,prefix=,suffix=,pattern=,value=
-            type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=long
+            type=semver,pattern={{raw}}
+            type=sha,format=long
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.DOCKER_HUB_REPOSITORY }}
